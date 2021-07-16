@@ -17,8 +17,9 @@ If you have any questions just drop a line in #initiative-pwa Slack channel.
 - JSON API for navigation, layouts
 - taking into account all language/translation configuration (e.g. fallback)
 - easily extensible with custom fields or custom CE's
-- basic support for EXT:form
-- support for felogin (comming soon)
+- support for EXT:form
+- support for EXT:felogin
+- support for EXT:redirects
 
 ### Additional extensions and integrations
 
@@ -28,7 +29,7 @@ If you have any questions just drop a line in #initiative-pwa Slack channel.
 - headless support for EXT:gridelements https://github.com/itplusx/headless_gridelements
 
 ## Requirements
-Extension requires TYPO3 in version at least 9.5.
+Extension requires TYPO3 in version at least 9.5. 
 
 ## Quickstart / Demo
 
@@ -158,7 +159,7 @@ To change the setting for this extension feature either use Localconfiguration.p
 **headless.frontendUrls** or **~~FrontendBaseUrlInPagePreview~~** (deprecated)
 
 This feature toggle extends current SiteConfiguration (and it's variants) with new field for Frontend Url
-(url frontend of PWA app). This new field is used when there is a need to preview a page such as: "view" module or right click on a page + show, or the 'eye' icon in page view
+(url frontend of PWA app). This new field is used when there is a need to preview a page such as: "view" module or right click in page tree on a page + show, or the 'eye' icon in page module view
 & allow generating proper cross-domain links for headless instance.
 ```
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['headless.frontendUrls'] = true;
@@ -166,7 +167,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['headless.frontendUrls'] = true;
 
 **headless.storageProxy**
 
-Enable ability to set storage proxy in site configuration (and it's variants) & serve files via proxy from same domain
+Enable ability to set storage proxy in site configuration (and it's variants) & serve files via proxy from same domain as frontend application (if we serve images on backend domain in nuxt-typo3
 
 Feature flag requires TYPO3 >= 10.4.10
 
@@ -205,6 +206,7 @@ A special thanks goes to [macopedia.com](https://macopedia.com) company, which i
 ### Developers involved in the project
 
 - Łukasz Uznański (Macopedia)
+- Tomasz Woldański (Macopedia)
 - Adam Marcinkowski (Macopedia)
 - Vaclav Janoch (ITplusX)
 
