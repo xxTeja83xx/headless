@@ -167,7 +167,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['headless.frontendUrls'] = true;
 
 **headless.storageProxy**
 
-Enable ability to set storage proxy in site configuration (and it's variants) & serve files via proxy from same domain as frontend application (if we serve images on backend domain in nuxt-typo3
+Enable ability to set storage proxy in site configuration (and it's variants) & serve files via proxy from same domain as frontend application.
 
 Feature flag requires TYPO3 >= 10.4.10
 
