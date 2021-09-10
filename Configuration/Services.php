@@ -25,6 +25,11 @@ return static function (ContainerConfigurator $configurator): void {
 
     $excludes = [];
 
+    /**
+     * throws errors
+     * @todo investigate here
+     */
+    /*
     if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('form')) {
         $excludes = [
             '../Classes/Form/*',
@@ -34,6 +39,7 @@ return static function (ContainerConfigurator $configurator): void {
     }
 
     $excludes[] = '../Classes/XClass/Domain/Model/FormDefinition.php';
+    */
 
     $toLoad->exclude($excludes);
 

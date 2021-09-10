@@ -18,6 +18,7 @@ use FriendsOfTYPO3\Headless\Form\Decorator\DefinitionDecoratorInterface;
 use FriendsOfTYPO3\Headless\Form\Decorator\FormDefinitionDecorator;
 use FriendsOfTYPO3\Headless\Form\Translator;
 use FriendsOfTYPO3\Headless\XClass\FormRuntime;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Web\Response;
@@ -59,15 +60,14 @@ class FormFrontendController extends \TYPO3\CMS\Form\Controller\FormFrontendCont
      *
      * @internal
      */
-    public function renderAction(): void
+    public function renderAction(): ResponseInterface
     {
         // check if headless not loaded & call original method in case of fluid configuration
         $typoScriptSetup = $GLOBALS['TSFE'] instanceof TypoScriptFrontendController ? $GLOBALS['TSFE']->tmpl->setup : [];
         if (!isset($typoScriptSetup['plugin.']['tx_headless.']['staticTemplate'])
             || (bool)$typoScriptSetup['plugin.']['tx_headless.']['staticTemplate'] === false
         ) {
-            parent::renderAction();
-            return;
+            return parent::renderAction();
         }
 
         $formDefinition = [];
